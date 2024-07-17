@@ -17,4 +17,7 @@ MySQL driver configuration parameter:
 multiStatements=true
 ```
 
-Support code to the article published at https://oak.dev and video at: https://youtu.be/OcMOXMXYRXo
+Support code to the article and video published at:
+
+- https://oak.dev/2024/07/17/golang-sql-injection-in-mariadb-mysql/
+- https://youtu.be/OcMOXMXYRXo
