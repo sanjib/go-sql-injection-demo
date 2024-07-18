@@ -82,11 +82,17 @@ type Message struct {
 // Example SQL injection (include space after -- below) code:
 // '); truncate messages; --
 func insertMessage(msg string) error {
-	q := `INSERT INTO messages (message) VALUES (?)`
+	// Allows SQL injection.
+	// Uncomment following 2 lines to demo SQL injection.
 	//q := fmt.Sprintf(`INSERT INTO messages (message) VALUES ('%s')`, msg)
-	log.Println(q)
-	_, err := db.Exec(q, msg)
 	//_, err := db.Exec(q)
+
+	// Prevents SQL injection.
+	// Uncomment following 2 lines to prevent SQL injection.
+	q := `INSERT INTO messages (message) VALUES (?)`
+	_, err := db.Exec(q, msg)
+
+	log.Println(q)
 	if err != nil {
 		return err
 	}
